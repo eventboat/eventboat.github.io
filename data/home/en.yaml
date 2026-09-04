@@ -1,0 +1,42 @@
+sections: [hero, cards, cta]
+
+hero:
+  align: center
+  eyebrow: Agent-native event router
+  title_lines:
+    - words: [{ text: Pipelines as code. }]
+    - words: [{ text: Verified by machines. }]
+    - words: [{ text: Operated by agents. }]
+  lead: A Go single-binary DAG event router — CEL predicates, Starlark transforms, MCP operations surface. At-least-once reliability with replay.
+  actions:
+    - { label: Quick start, url: docs/get-started/, icon: fa-solid fa-rocket, style: primary }
+    - { label: GitHub, url: https://github.com/eventboat/eventboat, icon: fa-brands fa-github, style: ghost }
+
+cards:
+  eyebrow: Four machine gates
+  title: Agents can do anything; Eventboat ensures machines prove it first
+  columns: 4
+  items:
+    - title: verify
+      desc: Schema, topology, CEL+Starlark compilation, job config, lint — zero side effects.
+      icon: fa-solid fa-check-double
+      url: docs/reference/verify/
+    - title: test
+      desc: Contract tests against the real engine — fixture in, assertions out, CI-ready.
+      icon: fa-solid fa-flask
+      url: docs/reference/test/
+    - title: explain
+      desc: Deterministic walkthrough — sample message → edge-by-edge path prediction → sink.
+      icon: fa-solid fa-magnifying-glass
+      url: docs/reference/explain/
+    - title: operate
+      desc: MCP server — catalog, deploy, status, trigger, tail, dead-letter replay. Full agent loop.
+      icon: fa-solid fa-robot
+      url: docs/reference/mcp/
+
+cta:
+  title: One binary. One config file. One command.
+  text: go install github.com/eventboat/eventboat/cmd/eventboat@latest
+  label: Get started
+  url: docs/get-started/
+  style: primary

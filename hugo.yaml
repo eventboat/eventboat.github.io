@@ -1,0 +1,67 @@
+title: &siteTitle Eventboat
+baseURL: https://eventboat.dev/
+defaultContentLanguage: en
+disableLanguages: [fr]
+enableGitInfo: true
+enableRobotsTXT: true
+
+languages:
+  en:
+    label: English
+    locale: en-US
+    weight: 1
+    title: *siteTitle
+    params:
+      description: Agent-native event router — pipelines as code, verified by machines, operated by agents.
+  zh:
+    label: 简体中文
+    locale: zh-CN
+    weight: 2
+    title: *siteTitle
+    hasCJKLanguage: true
+    params:
+      description: Agent 原生事件路由器 — 管道即代码、机器验证、Agent 运维。
+  fr:
+    label: Français
+    locale: fr-FR
+    weight: 3
+    title: *siteTitle
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+    parser:
+      attribute:
+        block: true
+      wrapStandAloneImageWithinParagraph: false
+  highlight:
+    noClasses: false
+
+outputs:
+  home: [HTML, RSS, markdown, LLMS]
+  page: [HTML, markdown]
+  section: [HTML, RSS, print, markdown]
+
+params:
+  offline_search: true
+  copyright:
+    authors: Eventboat contributors
+    from_year: 2026
+    github_repo: https://github.com/eventboat/eventboat
+    github_branch: main
+  footer_center_info: ''
+  ui:
+    theme_color: '#1a6fc4'
+    typography: system
+    dark_mode: true
+    section_index: cards
+    blog_index: cards
+    sidebar_menu_foldable: true
+
+module:
+  imports:
+    - path: github.com/pgsty/oink
+  hugoVersion:
+    extended: true
+    min: 0.160.1

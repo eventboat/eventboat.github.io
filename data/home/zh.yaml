@@ -1,0 +1,42 @@
+sections: [hero, cards, cta]
+
+hero:
+  align: center
+  eyebrow: Agent 原生事件路由器
+  title_lines:
+    - words: [{ text: 管道即代码。 }]
+    - words: [{ text: 机器来证明。 }]
+    - words: [{ text: Agent 来运维。 }]
+  lead: Go 单二进制 DAG 事件路由器 — CEL 谓词、Starlark 脚本、MCP 操作面。at-least-once 可靠性，支持回放。
+  actions:
+    - { label: 快速上手, url: docs/get-started/, icon: fa-solid fa-rocket, style: primary }
+    - { label: GitHub, url: https://github.com/eventboat/eventboat, icon: fa-brands fa-github, style: ghost }
+
+cards:
+  eyebrow: 四道机器关卡
+  title: Agent 能做任何事；Eventboat 确保机器先证明它做对了
+  columns: 4
+  items:
+    - title: verify
+      desc: Schema、拓扑、CEL+Starlark 编译、作业配置、lint — 零副作用。
+      icon: fa-solid fa-check-double
+      url: docs/reference/verify/
+    - title: test
+      desc: 对真实引擎跑合约测试 — fixture 进、断言出、CI 可用。
+      icon: fa-solid fa-flask
+      url: docs/reference/test/
+    - title: explain
+      desc: 确定性推演 — 样例消息 → 逐边路径预测 → sink。
+      icon: fa-solid fa-magnifying-glass
+      url: docs/reference/explain/
+    - title: operate
+      desc: MCP 服务器 — catalog、deploy、status、trigger、tail、死信回放。完整 Agent 闭环。
+      icon: fa-solid fa-robot
+      url: docs/reference/mcp/
+
+cta:
+  title: 一个二进制。一个配置文件。一条命令。
+  text: go install github.com/eventboat/eventboat/cmd/eventboat@latest
+  label: 开始使用
+  url: docs/get-started/
+  style: primary
