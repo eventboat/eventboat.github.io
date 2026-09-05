@@ -4,6 +4,12 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+  schedule:
+    # The developer guides under content/docs/developer/ are rendered at
+    # build time from eventboat/eventboat main (see the render step below),
+    # so the site also rebuilds on a clock to pick up upstream doc changes
+    # between engine pushes. Cheap no-op when nothing moved.
+    - cron: "23 3 * * *"
 
 permissions:
   contents: read
@@ -35,6 +41,22 @@ jobs:
         with:
           go-version-file: go.mod
           cache-dependency-path: go.sum
+
+      # The developer guide section (content/docs/developer/) is generated
+      # from docs/developer/ in the public engine repo at build time — the
+      # engine repo is the single source of truth, this site never carries a
+      # committed copy that could drift.
+      - name: Check out engine repo
+        uses: actions/checkout@v7
+        with:
+          repository: eventboat/eventboat
+          path: engine
+
+      - name: Render developer guides into Hugo content
+        run: |-
+          go -C engine/tools/sitegen run . \
+            -src "${{ github.workspace }}/engine" \
+            -hugo-out "${{ github.workspace }}/content/docs"
 
       - name: Configure GitHub Pages
         id: pages
